@@ -20,7 +20,7 @@ function generateComputerChoice() {
         computerChoice = "Rock"
     }
     if (randomNumber == 2) {
-        computerChoice = "Papper"
+        computerChoice = "Paper"
     }
 
     if (randomNumber == 3) {
@@ -36,7 +36,7 @@ function getResult() {
         result = "Draw!"
      }
 
-   else if (computerChoice == "Rock" && userChoice == "Papper" || computerChoice == "Papper" && userChoice == "Scissors" || computerChoice == "Scissors" && userChoice == "Rock") {
+   else if (computerChoice == "Rock" && userChoice == "Paper" || computerChoice == "Paper" && userChoice == "Scissors" || computerChoice == "Scissors" && userChoice == "Rock") {
         result = "You win!"
      
     }
@@ -48,6 +48,6 @@ function getResult() {
     }
 
     resultDisplay.innerHTML = result
-    result=""
+    
 }
 
