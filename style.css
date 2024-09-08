@@ -33,7 +33,7 @@ h2 {
     gap: 20px;
 }
 #bottom{
-    margin-top: 30px;
+    margin-top: 70px;
 }
 .bottomResult{
     display: flex;
@@ -66,7 +66,7 @@ button:active {
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }
 
-span {
+.span {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     color: #f0f0f0;
@@ -74,28 +74,11 @@ span {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-#result {
-    font-family: 'Raleway', sans-serif;
-    font-size: 24px;
-    margin-top: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+ #result {
+   font-size:xx-large;
+   color: aqua;
 }
 
 @media (max-width: 600px) {
-    h2 {
-        font-size: 16px;
-    }
-
-    button {
-        padding: 8px 16px;
-        font-size: 16px;
-    }
-
-    span {
-         font-size: 18px;
-    }
-
-    #result {
-        font-size: 20px;
-    }
+ 
 }
