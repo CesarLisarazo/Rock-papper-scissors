@@ -1,10 +1,17 @@
 let computerChoiceDisplay = document.getElementById('computerChoice');
 let userChoiceDisplay = document.getElementById('userChoice');
 let resultDisplay = document.getElementById('result');
-const possibleChoices = document.querySelectorAll('button');
+const possibleChoices = document.querySelectorAll('.button');
+let reload = document.getElementById("reload")
+reload.addEventListener ("click", reloadPage)
 let userChoice;
 let computerChoice;
 let result;
+let face= document.getElementById('face')
+let bottomWin=document.getElementById("win")
+let bottomLoose=document.getElementById("loose")
+let bottomDraw=document.getElementById("draw")
+
 
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
     userChoice = e.target.id;
@@ -38,6 +45,7 @@ function getResult() {
 
    else if (computerChoice == "Rock" && userChoice == "Paper" || computerChoice == "Paper" && userChoice == "Scissors" || computerChoice == "Scissors" && userChoice == "Rock") {
         result = "You win!"
+        
      
     }
    
@@ -48,6 +56,28 @@ function getResult() {
     }
 
     resultDisplay.innerHTML = result
+    if( result=="Draw!"){
+       face.setAttribute("src","images/draw.png")
+       bottomDraw.innerHTML=Number(bottomDraw.innerHTML)+1
+    }
+
+    else if(result=="You win!"){
+        face.setAttribute("src","images/win.png")
+        bottomWin.innerHTML=Number(bottomDraw.innerHTML)+1
+    }
+    else if(result=="You loose!"){
+        face.setAttribute("src","images/loose.png")
+        bottomLoose.innerHTML=Number(bottomDraw.innerHTML)+1
+    }
+   
+
+
     
 }
+
+
+function reloadPage () {
+   location.reload()
+}
+
 
