@@ -33,7 +33,10 @@ h2 {
     gap: 20px;
 }
 #bottom{
+    display: flex;
+    align-items: center;
     margin-top: 70px;
+    margin-bottom: 30px;
 }
 .bottomResult{
     display: flex;
