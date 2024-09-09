@@ -73,13 +73,13 @@ button:active {
     font-size: 20px;
     text-shadow: 1px 1px 3px rgba(197, 197, 197, 0.815);
 }
-h1{
-    color: rgb(0, 146, 146);
-    text-shadow: 1px 1px 3px rgba(4, 180, 171, 0.753);
+h1{  font-family: "Belleza", sans-serif;
+    color: #7ad3d9;
+    text-shadow: 1px 1px 3px rgba(7, 119, 113, 0.815);
 }
  #result {
    font-size:xx-large;
-   color: rgb(0, 192, 192);
+   color: #7ad3d9;
 }
 
 @media (max-width: 600px) {
