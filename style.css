@@ -79,7 +79,7 @@ h1{
 }
  #result {
    font-size:xx-large;
-   color: rgb(0, 146, 146);
+   color: rgb(0, 192, 192);
 }
 
 @media (max-width: 600px) {
