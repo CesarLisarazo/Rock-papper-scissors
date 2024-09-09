@@ -71,12 +71,15 @@ button:active {
     font-weight: 700;
     color: #f0f0f0;
     font-size: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 3px rgba(197, 197, 197, 0.815);
 }
-
+h1{
+    color: rgb(0, 146, 146);
+    text-shadow: 1px 1px 3px rgba(202, 202, 202, 0.781);
+}
  #result {
    font-size:xx-large;
-   color: aqua;
+   color: rgb(0, 146, 146);
 }
 
 @media (max-width: 600px) {
