@@ -12,6 +12,11 @@ body {
     height: 100vh;
     margin: 0;
 }
+
+button, a, input {
+    -webkit-tap-highlight-color: transparent; /* Para Safari y Chrome */
+    outline: none; /* Elimina el contorno del foco */
+}
 img{
     width: 100px;
     height:130px;
