@@ -63,11 +63,11 @@ function getResult() {
 
     else if(result=="You win!"){
         face.setAttribute("src","images/win.png")
-        bottomWin.innerHTML=Number(bottomDraw.innerHTML)+1
+        bottomWin.innerHTML=Number(bottomWin.innerHTML)+1
     }
     else if(result=="You loose!"){
         face.setAttribute("src","images/loose.png")
-        bottomLoose.innerHTML=Number(bottomDraw.innerHTML)+1
+        bottomLoose.innerHTML=Number(bottomLoose.innerHTML)+1
     }
    
 
