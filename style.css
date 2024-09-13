@@ -3,7 +3,7 @@
 body {
     user-select: none;
     font-family: 'Montserrat', sans-serif;
-    background-image:url("https://r1.ilikewallpaper.net/iphone-wallpapers/download/11077/Black-Texture-iphone-wallpaper-ilikewallpaper_com.jpg");
+    background-image:url("https://p4.wallpaperbetter.com/wallpaper/109/664/851/black-texture-wallpaper-preview.jpg");
 
     background-size: cover;
     color: #f0f0f0;
@@ -81,7 +81,7 @@ button:hover {
 }
 #tittle{
     margin-top: 15px;
-width: 50vh;
+width: 48vh;
 height: 50px;
 background-image:url("images/tittle.png");
 background-size: contain;
