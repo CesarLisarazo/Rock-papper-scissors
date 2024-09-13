@@ -75,7 +75,7 @@ function getResult() {
         face.setAttribute("src", "images/loose.png")
         bottomLoose.innerHTML = Number(bottomLoose.innerHTML) + 1
         resultDisplay.style.color = "#f484c1"
-        result.classList.add("perdiste")
+       
     }
 
 
