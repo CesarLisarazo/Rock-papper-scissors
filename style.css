@@ -79,7 +79,7 @@ button:hover {
 }
 #tittle{
 width: 50vh;
-height: 80px;
+height: 50px;
 background-image:url("images/tittle.png");
 background-size: contain;
 background-repeat: no-repeat;
