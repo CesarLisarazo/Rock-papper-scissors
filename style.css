@@ -78,6 +78,7 @@ button:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
 #tittle{
+    margin-top: 15px;
 width: 50vh;
 height: 50px;
 background-image:url("images/tittle.png");
