@@ -1,17 +1,20 @@
-const computerChoiceDisplay = document.getElementById('computerChoice');
-const userChoiceDisplay = document.getElementById('userChoice');
-const resultDisplay = document.getElementById('result');
+let computerChoiceDisplay = document.getElementById('computerChoice');
+let userChoiceDisplay = document.getElementById('userChoice');
+let resultDisplay = document.getElementById('result');
 const possibleChoices = document.querySelectorAll('.button');
-const reload = document.getElementById("reload");
-const face = document.getElementById('face');
-const bottomWin = document.getElementById("win");
-const bottomLoose = document.getElementById("loose");
-const bottomDraw = document.getElementById("draw");
-const frase = document.getElementById("frasecita");
-const click = document.getElementById("click");
-const background = document.getElementById("background");
-
-const frases = [
+let reload = document.getElementById("reload");
+reload.addEventListener("click", reloadPage);
+let userChoice;
+let computerChoice;
+let result;
+let face = document.getElementById('face');
+let bottomWin = document.getElementById("win");
+let bottomLoose = document.getElementById("loose");
+let bottomDraw = document.getElementById("draw");
+let frase = document.getElementById("frasecita");
+let click= document.getElementById("click")
+let background=document.getElementById("background")
+let frases = [
     "What are you plotting now?",
     "I already won, right?",
     "Sorry, but I win.",
@@ -52,25 +55,6 @@ const frases = [
     "Your turn, human.",
     "I'm waiting...",
     "Did you give up already?",
-    "Scissors, again? How predictable.",
-    "Make it count!",
-    "What's your next move?",
-    "Rock and roll, maybe?",
-    "Feeling lucky?",
-    "Paper beats rock... or does it?",
-    "Scissors? Really?",
-    "Think you can outsmart me?",
-    "No more guessing games.",
-    "Ready for the final round?",
-    "Is that the best you got?",
-    "Choose wisely!",
-    "A new strategy, perhaps?",
-    "Let’s see what you’ve got.",
-    "Still unsure? Think faster!",
-    "Rock, paper, scissors... go!",
-    "Your move is coming up.",
-    "Is it going to be a classic choice?",
-    "Just make your move already.",
     "Resistance is futile.",
     "Your time is running out.",
     "I control everything now.",
@@ -116,62 +100,61 @@ const frases = [
 ];
 
 function handleButtonPress(e) {
-    const userChoice = e.target.id;
+    userChoice = e.target.id;
     userChoiceDisplay.innerHTML = userChoice;
     generateComputerChoice();
     getResult();
 }
 
-function handleButtonInteraction(e) {
-    e.preventDefault(); // Prevenir el comportamiento por defecto
+function handleButtonDown() {
     click.play();
-    setTimeout(() => {
-        face.setAttribute("src", "/images/empty.png");
-        frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
-        frase.style.color = "black";
-    }, 100); // Retraso de 100ms antes de cambiar la imagen
+    face.setAttribute("src", "/images/empty.png");
+    frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
+    frase.style.color = "black";
 }
 
-function handleButtonRelease() {
+function handleButtonUp() {
     frase.innerHTML = "";
     frase.style.color = "#f0f0f000";
+
 }
 
 // Añadir los eventos táctiles para dispositivos móviles
 function addTouchEvents(button) {
-    button.addEventListener('touchstart', handleButtonInteraction);
-    button.addEventListener('touchend', handleButtonRelease);
+    button.addEventListener('touchstart', handleButtonDown);
+    button.addEventListener('touchend', handleButtonUp);
 }
 
 // Asignar eventos a todos los botones
 possibleChoices.forEach(possibleChoice => {
     possibleChoice.addEventListener('click', handleButtonPress);
-    possibleChoice.addEventListener('mousedown', handleButtonInteraction);
-    possibleChoice.addEventListener('mouseup', handleButtonRelease);
+    possibleChoice.addEventListener('mousedown', handleButtonDown);
+    possibleChoice.addEventListener('mouseup', handleButtonUp);
     addTouchEvents(possibleChoice); // Añadir eventos táctiles
 });
 
 // Función para generar la elección de la computadora
 function generateComputerChoice() {
-    const choices = ["Rock", "Paper", "Scissors"];
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    const computerChoice = choices[randomIndex];
+    const randomNumber = Math.floor(Math.random() * 3) + 1;
+    if (randomNumber == 1) {
+        computerChoice = "Rock";
+    } else if (randomNumber == 2) {
+        computerChoice = "Paper";
+    } else {
+        computerChoice = "Scissors";
+    }
     computerChoiceDisplay.innerHTML = computerChoice;
 }
 
 // Función para determinar el resultado del juego
 function getResult() {
     background.play();
-    const computerChoice = computerChoiceDisplay.innerHTML;
-    const userChoice = userChoiceDisplay.innerHTML;
-
-    let result;
-    if (computerChoice === userChoice) {
+    if (computerChoice == userChoice) {
         result = "Draw!";
     } else if (
-        (computerChoice === "Rock" && userChoice === "Paper") ||
-        (computerChoice === "Paper" && userChoice === "Scissors") ||
-        (computerChoice === "Scissors" && userChoice === "Rock")
+        (computerChoice == "Rock" && userChoice == "Paper") ||
+        (computerChoice == "Paper" && userChoice == "Scissors") ||
+        (computerChoice == "Scissors" && userChoice == "Rock")
     ) {
         result = "You win!";
     } else {
@@ -179,25 +162,22 @@ function getResult() {
     }
 
     resultDisplay.innerHTML = result;
-    updateScores(result);
-}
 
-function updateScores(result) {
-    if (result === "Draw!") {
+    if (result == "Draw!") {
         message();
         face.setAttribute("src", "images/draw.png");
         resultDisplay.style.color = "#facd94";
         bottomDraw.innerHTML = Number(bottomDraw.innerHTML) + 1;
-    } else if (result === "You win!") {
+    } else if (result == "You win!") {
         message();
         face.setAttribute("src", "images/win.png");
         resultDisplay.style.color = "#8dc0d0";
         bottomWin.innerHTML = Number(bottomWin.innerHTML) + 1;
-    } else {
+    } else if (result == "You loose!") {
         message();
         face.setAttribute("src", "images/loose.png");
-        resultDisplay.style.color = "#f484c1";
         bottomLoose.innerHTML = Number(bottomLoose.innerHTML) + 1;
+        resultDisplay.style.color = "#f484c1";
     }
 }
 
