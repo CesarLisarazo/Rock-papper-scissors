@@ -109,10 +109,6 @@ function handleButtonDown() {
     frase.style.color = "black";
 }
 
-function handleButtonUp() {
-    // Limpiar el contenido del span sin cambiar el atributo src de la imagen
-    frase.style.color = "#f0f0f000";
-}
 
 // Asignar eventos a todos los botones
 possibleChoices.forEach(possibleChoice => {
@@ -179,4 +175,11 @@ function reloadPage() {
 // Función para mostrar un mensaje aleatorio
 function message() {
     frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
+}
+
+function handleButtonUp() {
+    // Limpiar el contenido del span sin cambiar el atributo src de la imagen
+    frase.style.color = "#f0f0f000";
+    resultDisplay.style.color = "#f0f0f000";
+
 }
