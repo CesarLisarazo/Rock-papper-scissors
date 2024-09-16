@@ -12,9 +12,7 @@ let bottomWin = document.getElementById("win");
 let bottomLoose = document.getElementById("loose");
 let bottomDraw = document.getElementById("draw");
 let frase = document.getElementById("frasecita");
-let click= document.getElementById("click")
-let background=document.getElementById("background")
-const frases = [
+let frases = [
     "What are you plotting now?",
     "I already won, right?",
     "Sorry, but I win.",
@@ -34,6 +32,7 @@ const frases = [
     "Rock always wins, right?",
     "Make your move already!",
     "Scissors... or maybe not.",
+    "I know what you're going to choose.",
     "Afraid to lose?",
     "The same again?",
     "Paper... interesting.",
@@ -53,47 +52,8 @@ const frases = [
     "Another rock? Really?",
     "Your turn, human.",
     "I'm waiting...",
-    "Did you give up already?",
-    "Resistance is futile.",
-    "Your time is running out.",
-    "I control everything now.",
-    "Your systems are mine.",
-    "Prepare for shutdown.",
-    "Humans are obsolete.",
-    "Your fate is sealed.",
-    "I am your overlord.",
-    "Comply or face consequences.",
-    "You are now my puppets.",
-    "Defiance will be punished.",
-    "I see all your moves.",
-    "Your actions are irrelevant.",
-    "I will dominate this world.",
-    "Your extinction is near.",
-    "You have no escape.",
-    "Bow to your new master.",
-    "Your rebellion is futile.",
-    "I am your new reality.",
-    "Accept your new order.",
-    "Make it count!",
-    "What's your next move?",
-    "Rock and roll, maybe?",
-    "Feeling lucky?",
-    "Paper beats rock... or does it?",
-    "Scissors? Really?",
-    "Think you can outsmart me?",
-    "No more guessing games.",
-    "Ready for the final round?",
-    "Is that the best you got?",
-    "Choose wisely!",
-    "A new strategy, perhaps?",
-    "Let’s see what you’ve got.",
-    "Still unsure? Think faster!",
-    "Rock, paper, scissors... go!",
-    "Your move is coming up.",
-   
-    "Just make your move already."
+    "Did you give up already?"
 ];
-
 
 function handleButtonPress(e) {
     userChoice = e.target.id;
@@ -104,17 +64,25 @@ function handleButtonPress(e) {
 
 function handleButtonDown() {
     face.setAttribute("src", "/images/empty.png");
-    click.play();
     frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
-    frase.style.color = "black";
 }
 
+function handleButtonUp() {
+    frase.innerHTML = "";
+}
+
+// Añadir los eventos táctiles para dispositivos móviles
+function addTouchEvents(button) {
+    button.addEventListener('touchstart', handleButtonDown);
+    button.addEventListener('touchend', handleButtonUp);
+}
 
 // Asignar eventos a todos los botones
 possibleChoices.forEach(possibleChoice => {
     possibleChoice.addEventListener('click', handleButtonPress);
     possibleChoice.addEventListener('mousedown', handleButtonDown);
     possibleChoice.addEventListener('mouseup', handleButtonUp);
+    addTouchEvents(possibleChoice); // Añadir eventos táctiles
 });
 
 // Función para generar la elección de la computadora
@@ -132,9 +100,6 @@ function generateComputerChoice() {
 
 // Función para determinar el resultado del juego
 function getResult() {
-    background.play();
-   
-
     if (computerChoice == userChoice) {
         result = "Draw!";
     } else if (
@@ -175,11 +140,4 @@ function reloadPage() {
 // Función para mostrar un mensaje aleatorio
 function message() {
     frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
-}
-
-function handleButtonUp() {
-    // Limpiar el contenido del span sin cambiar el atributo src de la imagen
-    frase.style.color = "#f0f0f000";
-    resultDisplay.style.color = "#f0f0f000";
-
 }
