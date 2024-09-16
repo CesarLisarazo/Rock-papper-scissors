@@ -12,6 +12,8 @@ let bottomWin = document.getElementById("win");
 let bottomLoose = document.getElementById("loose");
 let bottomDraw = document.getElementById("draw");
 let frase = document.getElementById("frasecita");
+let click= document.getElementById("click")
+let background=document.getElementById("background")
 const frases = [
     "What are you plotting now?",
     "I already won, right?",
@@ -102,6 +104,7 @@ function handleButtonPress(e) {
 
 function handleButtonDown() {
     face.setAttribute("src", "/images/empty.png");
+    click.play();
     frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
     frase.style.color = "black";
 }
@@ -133,6 +136,9 @@ function generateComputerChoice() {
 
 // Función para determinar el resultado del juego
 function getResult() {
+    background.play();
+   
+
     if (computerChoice == userChoice) {
         result = "Draw!";
     } else if (
