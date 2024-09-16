@@ -12,6 +12,8 @@ let bottomWin = document.getElementById("win");
 let bottomLoose = document.getElementById("loose");
 let bottomDraw = document.getElementById("draw");
 let frase = document.getElementById("frasecita");
+let click= document.getElementById("click")
+let background=document.getElementById("background")
 let frases = [
     "What are you plotting now?",
     "I already won, right?",
@@ -63,12 +65,16 @@ function handleButtonPress(e) {
 }
 
 function handleButtonDown() {
+    click.play();
     face.setAttribute("src", "/images/empty.png");
     frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
+    frase.style.color = "black";
 }
 
 function handleButtonUp() {
     frase.innerHTML = "";
+    frase.style.color = "#f0f0f000";
+
 }
 
 // Añadir los eventos táctiles para dispositivos móviles
@@ -100,6 +106,7 @@ function generateComputerChoice() {
 
 // Función para determinar el resultado del juego
 function getResult() {
+    background.play();
     if (computerChoice == userChoice) {
         result = "Draw!";
     } else if (
