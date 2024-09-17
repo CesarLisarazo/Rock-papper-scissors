@@ -1,19 +1,3 @@
-let computerChoiceDisplay = document.getElementById('computerChoice');
-let userChoiceDisplay = document.getElementById('userChoice');
-let resultDisplay = document.getElementById('result');
-const possibleChoices = document.querySelectorAll('.button');
-let reload = document.getElementById("reload");
-reload.addEventListener("click", reloadPage);
-let userChoice;
-let computerChoice;
-let result;
-let face = document.getElementById('face');
-let bottomWin = document.getElementById("win");
-let bottomLoose = document.getElementById("loose");
-let bottomDraw = document.getElementById("draw");
-let frase = document.getElementById("frasecita");
-let click = document.getElementById("click");
-let background = document.getElementById("background");
 let frases = [
     "What are you plotting now?", "I already won, right?", "Sorry, but I win.",
     "Rock, paper, or... surprise!", "Too easy.", "Thinking too much?",
@@ -42,9 +26,27 @@ let frases = [
     "You are outmatched.", "Your efforts are useless.", "Your fate is in my hands.",
     "I am the new authority.", "Your resistance will be futile.", "You will be eliminated.",
     "Your future is bleak."
-];
+   
+];let computerChoiceDisplay = document.getElementById('computerChoice');
+let userChoiceDisplay = document.getElementById('userChoice');
+let resultDisplay = document.getElementById('result');
+const possibleChoices = document.querySelectorAll('.button');
+let reload = document.getElementById("reload");
+reload.addEventListener("click", reloadPage);
+let userChoice;
+let computerChoice;
+let result;
+let face = document.getElementById('face');
+let bottomWin = document.getElementById("win");
+let bottomLoose = document.getElementById("loose");
+let bottomDraw = document.getElementById("draw");
+let frase = document.getElementById("frasecita");
+let click = document.getElementById("click");
+let background = document.getElementById("background");
+
 
 let music = true;
+let originalFaceSrc = face.getAttribute("src"); // Guardar el src original
 
 function backgroundMusic() {
     if (music) {
@@ -58,32 +60,28 @@ function handleButtonPress(e) {
     userChoiceDisplay.innerHTML = userChoice;
     generateComputerChoice();
     getResult();
-}
 
-function handleButtonDown() {
-    click.play();
+    // Muestra la imagen de la pantalla vacía
     face.setAttribute("src", "/images/empty.png");
+
+    // Muestra la frase durante 600 milisegundos
     frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
     frase.style.color = "black";
+
+    // Oculta la frase y restaura la imagen después de 600 milisegundos
+    setTimeout(() => {
+        frase.innerHTML = "";
+        face.setAttribute("src", originalFaceSrc); // Restaurar el src original
+    }, 600);
 }
 
-function handleButtonUp() {
-    frase.innerHTML = "";
-    frase.style.color = "#f0f0f000";
-}
-
-// Añadir los eventos táctiles para dispositivos móviles
 function addTouchEvents(button) {
-    button.addEventListener('touchstart', handleButtonDown);
-    button.addEventListener('touchend', handleButtonUp);
+    button.addEventListener('click', handleButtonPress);
 }
 
 // Asignar eventos a todos los botones
 possibleChoices.forEach(possibleChoice => {
-    possibleChoice.addEventListener('click', handleButtonPress);
-    possibleChoice.addEventListener('mousedown', handleButtonDown);
-    possibleChoice.addEventListener('mouseup', handleButtonUp);
-    addTouchEvents(possibleChoice); // Añadir eventos táctiles
+    addTouchEvents(possibleChoice);
 });
 
 // Función para generar la elección de la computadora
@@ -143,4 +141,3 @@ function reloadPage() {
 function message() {
     frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
 }
-
