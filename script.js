@@ -189,7 +189,13 @@ else{
 
 
 function reloadPage() {
-    location.reload()
-}
+    computerChoiceDisplay.innerHTML=""
+    userChoiceDisplay.innerHTML=""
+    resultDisplay.innerHTML=""
+    bottomLoose.innerHTML =0
+    bottomDraw.innerHTML=0
+    bottomWin.innerHTML=0
+    face.setAttribute("src", "images/empty.png")
+    }
 
 
