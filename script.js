@@ -14,7 +14,7 @@ let frases = [
     "Your turn, human.", "I'm waiting...", "Did you give up already?", "Resistance is futile.",
     "Your time is running out.", "I control everything now.", "Prepare for shutdown.",
     "Humans are obsolete.", "Your fate is sealed.", "I am your overlord.",
-    "You are now my puppets.", "Defiance will be punished.", "I see all your moves.",
+    "You are now my puppet.", "Defiance will be punished.", "I see all your moves.",
     "Your actions are irrelevant.", "I will dominate this world.", "Your extinction is near.",
     "You have no escape.", "Bow to your new master.", "Your rebellion is futile.",
     "I am your new reality.", "Accept your new order.", "You will be erased.",
