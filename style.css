@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Raleway:wght@400;700&display=swap');
-
 body {
     user-select: none;
     font-family: 'Montserrat', sans-serif;
-    background-image:url("https://p4.wallpaperbetter.com/wallpaper/109/664/851/black-texture-wallpaper-preview.jpg");
-
+    background-image: url("https://p4.wallpaperbetter.com/wallpaper/109/664/851/black-texture-wallpaper-preview.jpg");
     background-size: cover;
     color: #f0f0f0;
     display: flex;
@@ -19,11 +16,13 @@ button, a, input {
     -webkit-tap-highlight-color: transparent; /* Para Safari y Chrome */
     outline: none; /* Elimina el contorno del foco */
 }
-img{
+
+img {
     width: 100px;
-    height:130px;
+    height: 130px;
     transform: translateX(-60px);
 }
+
 h2 {
     margin: 10px 0;
     font-family: 'Raleway', sans-serif;
@@ -31,31 +30,27 @@ h2 {
     color: #f0f0f0;
     text-shadow: 2px 2px 5px rgb(110, 110, 110);
 }
-#bottom{
-    display: flex;
-}
 
-#score{
-    display: flex;
-    flex-direction: column;
-        gap: 20px;
-   
-    width: 10vh;
-    
-}
-#bottom{
+#bottom {
     display: flex;
     transform: translateX(3vh);
     align-items: center;
     margin-top: 30px;
     margin-bottom: 20px;
-    
     justify-content: left;
-    
 }
-.bottomResult{
+
+#score {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 10vh;
+}
+
+.bottomResult {
     display: flex;
 }
+
 button {
     scale: 0.8;
     font-family: 'Montserrat', sans-serif;
@@ -72,29 +67,28 @@ button {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-
 button:hover {
     background-color: #6e6e6e;
     color: #1e1e1e;
-  
-  
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
-#tittle{
-    margin-top: 15px;
-width: 38vh;
-height: 50px;
-background-image:url("images/tittle.png");
-background-size: contain;
-background-repeat: no-repeat;
 
-}
 button:active {
     transform: translateY(2px);
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
     font-family: 'Montserrat', sans-serif;
 }
-#frasecita{
+
+#tittle {
+    margin-top: 15px;
+    width: 38vh;
+    height: 50px;
+    background-image: url("images/tittle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#frasecita {
     position: absolute;
     height: 60px;
     width: 60px;
@@ -109,8 +103,8 @@ button:active {
     align-items: center;
     color: #1e1e1e;
     display: flex;
-   
 }
+
 .span {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
@@ -118,15 +112,18 @@ button:active {
     font-size: 20px;
     text-shadow: 1px 1px 3px rgba(197, 197, 197, 0.815);
 }
-h1{  font-family: "Belleza", sans-serif;
+
+h1 {
+    font-family: "Belleza", sans-serif;
     color: #7ad3d9;
     text-shadow: 1px 1px 3px rgba(7, 119, 113, 0.815);
 }
- #result {
-   font-size:xx-large;
-   color: #7ad3d9;
+
+#result {
+    font-size: xx-large;
+    color: #7ad3d9;
 }
 
 @media (max-width: 600px) {
- 
+    /* Ajustes para dispositivos móviles */
 }
