@@ -62,7 +62,6 @@ let frases = [
     "Humans are obsolete.",
     "Your fate is sealed.",
     "I am your overlord.",
-    "Comply or face consequences.",
     "You are now my puppets.",
     "Defiance will be punished.",
     "I see all your moves.",
@@ -99,6 +98,17 @@ let frases = [
     "Your future is bleak."
 ];
 
+let music=true;
+
+function backgroundMusic(){
+    if(music==true){
+        background.play()
+    }
+    else{
+        return
+    }
+    music=false
+}
 function handleButtonPress(e) {
     userChoice = e.target.id;
     userChoiceDisplay.innerHTML = userChoice;
@@ -148,7 +158,7 @@ function generateComputerChoice() {
 
 // Función para determinar el resultado del juego
 function getResult() {
-    background.play();
+    backgroundMusic()
     if (computerChoice == userChoice) {
         result = "Draw!";
     } else if (
