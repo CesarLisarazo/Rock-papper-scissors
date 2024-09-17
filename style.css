@@ -29,6 +29,7 @@ h2 {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     color: #f0f0f0;
+   
     
 }
 #bottom{
@@ -95,9 +96,13 @@ button:hover {
   
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
+
 #tittle{
+    position: relative;
+
+  
     margin-top: 15px;
-width: 55vh;
+width: 350px;
 height: 50px;
 background-image:url("images/tittle.png");
 background-size: contain;
@@ -108,12 +113,18 @@ button:active {
     transform: translateY(2px);
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }
+#textContainer{
+    text-align: left;
 
+    width: 300px;
+
+}
 .span {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     color: #f0f0f0;
     font-size: 20px;
+    
 }
 h1{  font-family: "Belleza", sans-serif;
     color: #7ad3d9;
@@ -123,7 +134,48 @@ h1{  font-family: "Belleza", sans-serif;
    font-size:xx-large;
    color: #7ad3d9;
 }
+#yourChoice{
+    margin-left: 40px;
+}
+#resultado{
+    margin-left: 40px; 
+}
 
+#loading{
+    animation: loading 0.3s;position: absolute;
+    height: 4px;
+    width: 60px;
+    z-index: 1;
+    top: 33%;
+    left: -18.5%;
+    border-radius: 3px;
+    transform: translate(-50%, -50%);
+    font-weight: bolder;
+    font-size: 10px;
+    transform: translateY(29px);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #1e1e1e;
+    display: flex;
+ 
+    
+    background-color: red;
+}
+#startMusic{
+  
+    width: 75px;
+    text-align: left;
+}
+@keyframes loading{
+    0%{
+        width: 0px;
+    
+    }
+    100%{
+        width: 60px;
+    }
+}
 @media (max-width: 600px) {
  
 }

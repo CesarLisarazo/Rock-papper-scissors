@@ -43,18 +43,50 @@ let bottomDraw = document.getElementById("draw")
 let frase= frases[Math.floor(Math.random()*frases.length)]
 let frasePc= document.getElementById("frasecita")
 let enable=true
+let loading=document.getElementById("loading")
+let startMusic= document.getElementById("startMusic")
+let background= document.getElementById("background")
+let clicka = document.getElementById("clicka")
+clicka.volume=0;
 
-
+startMusic.addEventListener("click",change)
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
     userChoice = e.target.id;
     userChoiceDisplay.innerHTML = userChoice;
+    clicka.play()
+    console.log(  clicka.volume)
     generateComputerChoice()
     getResult()
 
 }));
 
-function generateComputerChoice() {
 
+
+
+function change(){
+    if(startMusic.innerHTML=="🔈"){
+        background.play()
+        clicka.volume=1;
+       
+ 
+     
+      
+
+
+       startMusic.innerHTML="🔊"
+}
+else{
+    startMusic.innerHTML="🔈"
+    background.pause()
+    clicka.volume=0;
+ 
+ 
+   
+}
+}
+function generateComputerChoice() {
+    
+  
 
     const randomNumber = Math.floor(Math.random() * 3) + 1
     if (randomNumber == 1) {
@@ -75,7 +107,7 @@ function generateComputerChoice() {
 function getResult() {
 
 
-
+if(enable==true){
 
     if (computerChoice == userChoice) {
         result = "Draw!"
@@ -88,6 +120,7 @@ function getResult() {
     }
     resultDisplay.innerHTML = result
     if (result == "Draw!") {
+        enable=false
         computerChoiceDisplay.style.color="#00000000"
          resultDisplay.style.textShadow = "0px 0px 0px #00000000"
          resultDisplay.style.color="#00000000"
@@ -101,11 +134,13 @@ function getResult() {
             frasePc.style.color="#00000000"
             resultDisplay.style.textShadow = "2px 2px 5px rgb(110, 110, 110)"
              computerChoiceDisplay.style.color="#facd94"
-        }, 750)
+             enable=true
+        }, 850)
 
     }
 
     else if (result == "You win!") {
+        enable=false
         computerChoiceDisplay.style.color="#00000000"
         resultDisplay.style.textShadow = "0px 0px 0px #00000000"
         resultDisplay.style.color="#00000000"
@@ -120,11 +155,13 @@ function getResult() {
          frasePc.style.color="#00000000"
          resultDisplay.style.textShadow = "2px 2px 5px rgb(110, 110, 110)"
           computerChoiceDisplay.style.color="#8dc0d0"
+          enable=true
 
-    }, 750)
+    }, 850)
     }
 
     else if (result == "You loose!") {
+        enable=false
         computerChoiceDisplay.style.color="#00000000"
         resultDisplay.style.textShadow = "0px 0px 0px #00000000"
         resultDisplay.style.color="#00000000"
@@ -138,11 +175,15 @@ function getResult() {
          frasePc.style.color="#00000000"
          resultDisplay.style.textShadow = "2px 2px 5px rgb(110, 110, 110)"
            computerChoiceDisplay.style.color="#f484c1"
-    }, 750)
+           enable=true
+    }, 850)
     }
 
 
-
+}
+else{
+    return
+}
 
 }
 

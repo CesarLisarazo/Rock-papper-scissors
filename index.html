@@ -12,16 +12,21 @@
     
 </head>
 <body>
+ 
     <span id="tittle"></span>
+
     <button class="button" id="Rock">Rock</button>
     <button class="button" id="Paper">Paper</button>
     <button class="button" id="Scissors">Scissors</button>
-    <h2>Your choice: <span class="span" id="userChoice"> </span></h2>
+<div id="textContainer">    <h2 id="yourChoice">Your choice: <span class="span" id="userChoice"> </span></h2>
     <h2>Computer choice: <span class="span" id="computerChoice"></span></h2>
-    <h2>Result: <span  id="result"></span></h2>
+    <h2 id="resultado">Result: <span  id="result"></span></h2>
+</div>
+
     <div id="bottom">
         <img id="face" src="/images/empty.png"></img>
         <span id="frasecita"></span>
+
         <div id="score">
             
             <div class="bottomResult span"> <span class="span" >Win:</span>  <span id="win">0 </span></div>
@@ -33,8 +38,15 @@
     </div>
     <div>
     <button id="reload" >Reload</button>
-    <button>🔈</button>
+
+    <button id="startMusic">🔈</button>
 </div>
+<audio id="background" loop>
+    <source src="sounds/Showdown.mp3" type="audio/mp3">
+  </audio>
+  <audio id="clicka">
+    <source src='sounds/click.mp3' type="audio/mp3">
+  </audio>
     <script src="script.js"></script>
 </body>
 </html>
