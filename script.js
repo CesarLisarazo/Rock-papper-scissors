@@ -54,7 +54,7 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click
     userChoice = e.target.id;
     userChoiceDisplay.innerHTML = userChoice;
     clicka.play()
-    console.log(  clicka.volume)
+
     generateComputerChoice()
     getResult()
 
