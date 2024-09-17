@@ -26,118 +26,129 @@ let frases = [
     "You are outmatched.", "Your efforts are useless.", "Your fate is in my hands.",
     "I am the new authority.", "Your resistance will be futile.", "You will be eliminated.",
     "Your future is bleak."
-   
-];let computerChoiceDisplay = document.getElementById('computerChoice');
+];
+let computerChoiceDisplay = document.getElementById('computerChoice');
 let userChoiceDisplay = document.getElementById('userChoice');
 let resultDisplay = document.getElementById('result');
 const possibleChoices = document.querySelectorAll('.button');
-let reload = document.getElementById("reload");
-reload.addEventListener("click", reloadPage);
+let reload = document.getElementById("reload")
+reload.addEventListener("click", reloadPage)
 let userChoice;
 let computerChoice;
 let result;
-let face = document.getElementById('face');
-let bottomWin = document.getElementById("win");
-let bottomLoose = document.getElementById("loose");
-let bottomDraw = document.getElementById("draw");
-let frase = document.getElementById("frasecita");
-let click = document.getElementById("click");
-let background = document.getElementById("background");
+let face = document.getElementById('face')
+let bottomWin = document.getElementById("win")
+let bottomLoose = document.getElementById("loose")
+let bottomDraw = document.getElementById("draw")
+let frase= frases[Math.floor(Math.random()*frases.length)]
+let frasePc= document.getElementById("frasecita")
+let enable=true
 
 
-let music = true;
-let originalFaceSrc = face.getAttribute("src"); // Guardar el src original
-
-function backgroundMusic() {
-    if (music) {
-        background.play();
-    }
-    music = false;
-}
-
-function handleButtonPress(e) {
+possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
     userChoice = e.target.id;
     userChoiceDisplay.innerHTML = userChoice;
-    generateComputerChoice();
-    getResult();
+    generateComputerChoice()
+    getResult()
 
-    // Muestra la imagen de la pantalla vacía
-    face.setAttribute("src", "/images/empty.png");
+}));
 
-    // Muestra la frase durante 600 milisegundos
-    frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
-    frase.style.color = "black";
-
-    // Oculta la frase y restaura la imagen después de 600 milisegundos
-    setTimeout(() => {
-        frase.innerHTML = "";
-        face.setAttribute("src", originalFaceSrc); // Restaurar el src original
-    }, 600);
-}
-
-function addTouchEvents(button) {
-    button.addEventListener('click', handleButtonPress);
-}
-
-// Asignar eventos a todos los botones
-possibleChoices.forEach(possibleChoice => {
-    addTouchEvents(possibleChoice);
-});
-
-// Función para generar la elección de la computadora
 function generateComputerChoice() {
-    const randomNumber = Math.floor(Math.random() * 3) + 1;
-    if (randomNumber === 1) {
-        computerChoice = "Rock";
-    } else if (randomNumber === 2) {
-        computerChoice = "Paper";
-    } else {
-        computerChoice = "Scissors";
+
+
+    const randomNumber = Math.floor(Math.random() * 3) + 1
+    if (randomNumber == 1) {
+        computerChoice = "Rock"
     }
-    computerChoiceDisplay.innerHTML = computerChoice;
+    if (randomNumber == 2) {
+        computerChoice = "Paper"
+    }
+
+    if (randomNumber == 3) {
+        computerChoice = "Scissors"
+    }
+
+    computerChoiceDisplay.innerHTML = computerChoice
+
 }
 
-// Función para determinar el resultado del juego
 function getResult() {
-    backgroundMusic();
-    if (computerChoice === userChoice) {
-        result = "Draw!";
-    } else if (
-        (computerChoice === "Rock" && userChoice === "Paper") ||
-        (computerChoice === "Paper" && userChoice === "Scissors") ||
-        (computerChoice === "Scissors" && userChoice === "Rock")
-    ) {
-        result = "You win!";
-    } else {
-        result = "You loose!";
+
+
+
+
+    if (computerChoice == userChoice) {
+        result = "Draw!"
+    }
+    else if (computerChoice == "Rock" && userChoice == "Paper" || computerChoice == "Paper" && userChoice == "Scissors" || computerChoice == "Scissors" && userChoice == "Rock") {
+        result = "You win!"
+    }
+    else {
+        result = "You loose!"
+    }
+    resultDisplay.innerHTML = result
+    if (result == "Draw!") {
+        computerChoiceDisplay.style.color="#00000000"
+         resultDisplay.style.textShadow = "0px 0px 0px #00000000"
+         resultDisplay.style.color="#00000000"
+         frasePc.style.color="black"
+        face.setAttribute("src", "images/empty.png")
+        frasePc.innerHTML=frases[Math.floor(Math.random()*frases.length)]
+        setTimeout(()=>{
+            face.setAttribute("src", "images/draw.png")
+            resultDisplay.style.color = "#facd94"
+            bottomDraw.innerHTML = Number(bottomDraw.innerHTML) + 1
+            frasePc.style.color="#00000000"
+            resultDisplay.style.textShadow = "2px 2px 5px rgb(110, 110, 110)"
+             computerChoiceDisplay.style.color="#facd94"
+        }, 750)
+
     }
 
-    resultDisplay.innerHTML = result;
+    else if (result == "You win!") {
+        computerChoiceDisplay.style.color="#00000000"
+        resultDisplay.style.textShadow = "0px 0px 0px #00000000"
+        resultDisplay.style.color="#00000000"
+        frasePc.style.color="black"
+        face.setAttribute("src", "images/empty.png")
+        frasePc.innerHTML=frases[Math.floor(Math.random()*frases.length)]
+        setTimeout(()=>{
+        face.setAttribute("src", "images/empty.png")
+        face.setAttribute("src", "images/win.png")
+        resultDisplay.style.color = "#8dc0d0"
+        bottomWin.innerHTML = Number(bottomWin.innerHTML) + 1
+         frasePc.style.color="#00000000"
+         resultDisplay.style.textShadow = "2px 2px 5px rgb(110, 110, 110)"
+          computerChoiceDisplay.style.color="#8dc0d0"
 
-    if (result === "Draw!") {
-        message();
-        face.setAttribute("src", "images/draw.png");
-        resultDisplay.style.color = "#facd94";
-        bottomDraw.innerHTML = Number(bottomDraw.innerHTML) + 1;
-    } else if (result === "You win!") {
-        message();
-        face.setAttribute("src", "images/win.png");
-        resultDisplay.style.color = "#8dc0d0";
-        bottomWin.innerHTML = Number(bottomWin.innerHTML) + 1;
-    } else if (result === "You loose!") {
-        message();
-        face.setAttribute("src", "images/loose.png");
-        bottomLoose.innerHTML = Number(bottomLoose.innerHTML) + 1;
-        resultDisplay.style.color = "#f484c1";
+    }, 750)
     }
+
+    else if (result == "You loose!") {
+        computerChoiceDisplay.style.color="#00000000"
+        resultDisplay.style.textShadow = "0px 0px 0px #00000000"
+        resultDisplay.style.color="#00000000"
+        frasePc.style.color="black"
+        face.setAttribute("src", "images/empty.png")
+        frasePc.innerHTML=frases[Math.floor(Math.random()*frases.length)]
+        setTimeout(()=>{
+        face.setAttribute("src", "images/loose.png")
+        bottomLoose.innerHTML = Number(bottomLoose.innerHTML) + 1
+        resultDisplay.style.color = "#f484c1"
+         frasePc.style.color="#00000000"
+         resultDisplay.style.textShadow = "2px 2px 5px rgb(110, 110, 110)"
+           computerChoiceDisplay.style.color="#f484c1"
+    }, 750)
+    }
+
+
+
+
 }
 
-// Función para recargar la página
+
 function reloadPage() {
-    location.reload();
+    location.reload()
 }
 
-// Función para mostrar un mensaje aleatorio
-function message() {
-    frase.innerHTML = frases[Math.floor(Math.random() * frases.length)];
-}
+

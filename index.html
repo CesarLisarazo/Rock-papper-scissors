@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Belleza&family=Protest+Guerrilla&display=swap" rel="stylesheet">
+  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Protest+Guerrilla&display=swap" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Raleway:wght@400;700&display=swap');
-        /* Tu CSS aquí */
-    </style>
+    
 </head>
 <body>
     <span id="tittle"></span>
@@ -20,23 +18,23 @@
     <button class="button" id="Scissors">Scissors</button>
     <h2>Your choice: <span class="span" id="userChoice"> </span></h2>
     <h2>Computer choice: <span class="span" id="computerChoice"></span></h2>
-    <h2>Result: <span id="result"></span></h2>
+    <h2>Result: <span  id="result"></span></h2>
     <div id="bottom">
-        <img id="face" src="/images/empty.png" alt="Face Image">
+        <img id="face" src="/images/empty.png"></img>
         <span id="frasecita"></span>
         <div id="score">
-            <div class="bottomResult span"> <span class="span">Win:</span> <span id="win">0</span></div>
-            <div class="bottomResult span"> <span class="span">Loose:</span> <span id="loose">0</span></div>
-            <div class="bottomResult span"> <span class="span">Draw:</span> <span id="draw">0</span></div>
+            
+            <div class="bottomResult span"> <span class="span" >Win:</span>  <span id="win">0 </span></div>
+            <div class="bottomResult span"> <span class="span" >Loose:</span> <span id="loose">0 </span></div>
+            <div class="bottomResult span" > <span class="span" >Draw:</span><span id="draw"> 0</span></div>
         </div>
-        <button id="reload">Reload</button>
+        
+        
     </div>
-    <audio id="click">
-        <source src='sounds/click.mp3' type="audio/mp3">
-    </audio>
-    <audio id="background" loop>
-        <source src="sounds/Showdown.mp3" type="audio/mp3">
-    </audio>
+    <div>
+    <button id="reload" >Reload</button>
+    <button>🔈</button>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
