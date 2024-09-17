@@ -133,7 +133,7 @@ if(enable==true){
             bottomDraw.innerHTML = Number(bottomDraw.innerHTML) + 1
             frasePc.style.color="#00000000"
             resultDisplay.style.textShadow = "2px 2px 5px rgb(110, 110, 110)"
-             computerChoiceDisplay.style.color="#facd94"
+             computerChoiceDisplay.style.color="#ffffff"
              enable=true
         }, 850)
 
@@ -154,7 +154,7 @@ if(enable==true){
         bottomWin.innerHTML = Number(bottomWin.innerHTML) + 1
          frasePc.style.color="#00000000"
          resultDisplay.style.textShadow = "2px 2px 5px rgb(110, 110, 110)"
-          computerChoiceDisplay.style.color="#8dc0d0"
+          computerChoiceDisplay.style.color="#ffffff"
           enable=true
 
     }, 850)
@@ -174,7 +174,7 @@ if(enable==true){
         resultDisplay.style.color = "#f484c1"
          frasePc.style.color="#00000000"
          resultDisplay.style.textShadow = "2px 2px 5px rgb(110, 110, 110)"
-           computerChoiceDisplay.style.color="#f484c1"
+           computerChoiceDisplay.style.color="#ffffff"
            enable=true
     }, 850)
     }
